@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/" method="post">
+          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" autocomplete="off" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+      </fieldset>
+      <% if(locals.weather){ %>
+        <ul>
+          <li>City : <%= weather[0] %></li>
+          <li>Longitude : <%= weather[1] %></li>
+          <li>Latitude : <%= weather[2] %> </li>
+          <li>Temperature : <%= weather[3] %> celsius</li>
+          <li>Humidity : <%= weather[4] %> %</li>
+          <li>Pressure : <%= weather[5] %> hpa </li>
+          <li>Inference : <%= weather[6] %></li>
+        </ul>
+      <% } %>
+
+      <% if(locals.error){ %>
+        <p><%= error %></p>
+      <% } %>
+    </div>
+  </body>
+</html>
