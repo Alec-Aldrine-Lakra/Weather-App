@@ -21,14 +21,14 @@ app.get('/',(req,res)=>{
 
 app.post('/', (req, res)=>{
     let city = req.body.city;
-  	let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.API_KEY}`
-    request(url, function (err, response, body) {
+  	let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.API_KEY}`;
+    request({url:url,json:true}, (err, response) => {
     	if(err){
 	      res.render('index', {weather: null, error: 'Error, please try again'});
 	    }
 	    else
 	    {
-	       let w = JSON.parse(body);
+	       let w = response.body;
 	       if(w.main == undefined){
 	           res.render('index', {weather: null, error: 'Error, please try again'});
 	       } 
