@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <fieldset>
-        <form action="/" method="post">
+        <form action="/" method="post" onsubmit="return validateForm()">
           <input name="city" type="text" class="ghost-input" placeholder="Enter a City" autocomplete="off" required>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
@@ -31,5 +31,18 @@
         <p><%= error %></p>
       <% } %>
     </div>
+    <script>
+      function validateForm(){
+          let a = document.getElementsByTagName('input')[0].value;
+          a=a.trim();
+          a=encodeURIComponent(a);
+          if(a===''){
+            alert('Enter a city');
+            return false;
+          }
+          else
+            return true;
+      }
+    </script>
   </body>
 </html>
