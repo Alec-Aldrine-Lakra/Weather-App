@@ -1,1 +1,1 @@
-This is a simple weather app created using Node JS and vanilla JS. Most of the css styles have been copied. I mostly enjoy doing backend as such. This app makes use of the openweatherapp Rest API to pull data with the help of city data and display in the browser.
+This is a simple weather app created using Node JS and vanilla JS. This app makes use of the openweatherapp Rest API to pull data with the help of city data and display in the browser window. I have used the request module which creates a simple http client in node to get data from the API.
